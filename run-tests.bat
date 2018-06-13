@@ -1,0 +1,1 @@
+mvn clean verify -Dapplication.env=local -Dcucumber.options="--tags @ui --tags ~@disabled " -P parallelPlugin -Dthreads=3 -Dselenium.remoteDriver=false
