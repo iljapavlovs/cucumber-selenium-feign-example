@@ -33,10 +33,10 @@ public class ApplicationProperties {
                     setProperty(ApplicationProperty.USER.name, "");
 
                     //Proxy settings
-                    setProperty(ApplicationProperty.REST_PROXY_ENABLED.name, "true");
+                    setProperty(ApplicationProperty.REST_PROXY_ENABLED.name, "false");
                     setProperty(ApplicationProperty.BROWSER_PROXY_ENABLED.name, "false");
-                    setProperty(ApplicationProperty.PROXY_HOST.name, "");
-                    setProperty(ApplicationProperty.PROXY_PORT.name, "8");
+                    setProperty(ApplicationProperty.PROXY_HOST.name, "proxy.com");
+                    setProperty(ApplicationProperty.PROXY_PORT.name, "8080");
 
                     //Selenium grid settings
                     setProperty(ApplicationProperty.REMOTE_DRIVER.name, "false");

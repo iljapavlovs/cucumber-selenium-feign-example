@@ -75,8 +75,6 @@ public class DriverFactory {
                 boolean videoCaptureEnabled = ApplicationProperties.getBoolean(ApplicationProperties.ApplicationProperty.SELENIUM_GRID_VIDEO_CAPTURE_ENABLED);
 
                 desiredCapabilities.setCapability("video", videoCaptureEnabled); //for video recording on Selenium Grid node
-                desiredCapabilities.setCapability("project", ApplicationProperties.getString(ApplicationProperties.ApplicationProperty.PROJECT_NAME));                           // Project name for logging
-                desiredCapabilities.setCapability("apm_id", ApplicationProperties.getString(ApplicationProperties.ApplicationProperty.APM_ID));                                // Projects APM ID for logging
 
                 String seleniumGridUrl = ApplicationProperties.getString(ApplicationProperties.ApplicationProperty.SELENIUM_GRID_URL);
                 log.info("Starting remote webdriver with Selenium Grid url - " + seleniumGridUrl);
