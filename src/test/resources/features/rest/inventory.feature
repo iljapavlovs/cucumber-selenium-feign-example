@@ -1,7 +1,7 @@
-@ui
-Feature: Pet Store
+@rest
+Feature: REST - Inventory API
 
-  Scenario: Get Store Inventory
+  Scenario: REST - Get Store Inventory
     When REST - Get store inventory
     Then Response - status code is 200
     And Response - body is
@@ -9,6 +9,9 @@ Feature: Pet Store
     {"Shortlisted":1,"Sold":1,"string":593,"1.1":1,"Hello":1,"pending":5,"available":971,"Unavailable":1,"status":2}
     """
 
-  Scenario: Get Store Inventory - Status Code
+  Scenario: REST - Get Store Inventory - Status Code
     When REST - Get store inventory
     Then Response - status code is 200
+
+
+
