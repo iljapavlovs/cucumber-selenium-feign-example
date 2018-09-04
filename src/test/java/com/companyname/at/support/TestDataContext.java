@@ -20,6 +20,8 @@ public class TestDataContext {
     private String[] pdfPages;
 
     private Response response;
+    private retrofit2.Response responseRetrofit;
+
 
     private Map<String, Supplier<String>> testDataMap = new HashMap<>();
 

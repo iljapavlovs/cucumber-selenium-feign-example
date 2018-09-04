@@ -27,7 +27,7 @@ public class ApplicationProperties {
 
                     //application URL's
                     setProperty(ApplicationProperty.APP_URL.name, "http://google.com");
-                    setProperty(ApplicationProperty.SERVICE_URL.name, "http://petstore.swagger.io/v2");
+                    setProperty(ApplicationProperty.SERVICE_URL.name, "http://petstore.swagger.io/v2/");
 
                     //User settings
                     setProperty(ApplicationProperty.USER.name, "");

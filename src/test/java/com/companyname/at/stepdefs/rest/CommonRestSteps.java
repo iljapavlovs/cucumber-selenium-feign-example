@@ -18,11 +18,18 @@ public class CommonRestSteps {
         assertThat(testData.getResponse().status()).isEqualTo(statusCode);
     }
 
+    @Then("^SWAGGER-CODEGEN Response - status code is (\\d+)$")
+    public void responseMockStatusCodeIs(int statusCode) throws Throwable {
+        assertThat(testData.getResponseRetrofit().code()).isEqualTo(statusCode);
+    }
+
     @And("^Response - body is$")
     public void responseBodyIs(String expected) throws Throwable {
         Response response = testData.getResponse();
         String actual = IOUtils.toString(response.body().asReader());
         assertThat(actual).isEqualTo(expected);
     }
+
+
 
 }

@@ -9,4 +9,7 @@ public class Constants {
     public static final int WAIT_LONG = ApplicationProperties.getInteger(ApplicationProperties.ApplicationProperty.WAIT_TIMEOUT_LNG);
     public static final int WAIT_VERY_LONG = ApplicationProperties.getInteger(ApplicationProperties.ApplicationProperty.WAIT_TIMEOUT_VERY_LNG);
     public static final int REST_CLIENT_READ_TIMEOUT = ApplicationProperties.getInteger(ApplicationProperties.ApplicationProperty.REST_CLIENT_READ_TIMEOUT);
+    public static final String SERVICE_URL = ApplicationProperties.getString(ApplicationProperties.ApplicationProperty.SERVICE_URL);
+    public static final int MOCK_PORT = 8155;
+
 }
