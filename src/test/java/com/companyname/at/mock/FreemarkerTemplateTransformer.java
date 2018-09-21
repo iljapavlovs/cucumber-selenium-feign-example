@@ -20,6 +20,23 @@ import java.util.Optional;
 
 public class FreemarkerTemplateTransformer extends ResponseDefinitionTransformer {
 
+//  Name of Transformer - will be needed if you want refer to the transformation non-globally
+  /*
+  http://wiremock.org/docs/extending-wiremock/
+  By default transformations will be applied globally.
+  If you only want them to apply in certain cases you can refer to make them non-global by adding this to your transformer class:
+    @Override
+    public boolean applyGlobally() {
+      return false;
+    }
+
+
+    Then you add the transformation to specific stubs via its name:
+    stubFor(get(urlEqualTo("/local-transform")).willReturn(aResponse()
+        .withStatus(200)
+        .withBody("Original body")
+        .withTransformers("my-transformer", "other-transformer")));
+   */
   private static final String NAME = "freemarker-transformer";
 
   @Override
@@ -29,7 +46,8 @@ public class FreemarkerTemplateTransformer extends ResponseDefinitionTransformer
 
   @Override
   public boolean applyGlobally() {
-    return true;
+//    return true;
+    return false;
   }
 
   @Override

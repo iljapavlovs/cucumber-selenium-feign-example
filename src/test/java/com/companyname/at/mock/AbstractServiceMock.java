@@ -26,6 +26,22 @@ public abstract class AbstractServiceMock {
 //            .dynamicPort() - any available port
             .port(port)
             .fileSource(definitionFileSource)
+            /*
+            http://wiremock.org/docs/extending-wiremock/
+            By default transformations will be applied globally.
+            If you only want them to apply in certain cases you can refer to make them non-global by adding this to your transformer class:
+              @Override
+              public boolean applyGlobally() {
+                return false;
+              }
+
+
+              Then you add the transformation to specific stubs via its name:
+              stubFor(get(urlEqualTo("/local-transform")).willReturn(aResponse()
+                  .withStatus(200)
+                  .withBody("Original body")
+                  .withTransformers("my-transformer", "other-transformer")));
+            */
             .extensions(new FreemarkerTemplateTransformer())
     );
     mock.start();
