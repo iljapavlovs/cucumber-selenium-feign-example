@@ -38,3 +38,59 @@ public class PetStoreMock extends AbstractServiceMock{
     );
   }
 }
+
+/** Example Mocks written in Kotlin
+
+* Create mock for a specific path
+
+    fun mockCustomerDetails(uid: String, customerId: String, success: Boolean, customer: String) {
+        mock.stubFor(
+            get(urlPathEqualTo("$CUSTOMER_URL_PATH/$uid"))
+                .willReturn(
+                    aResponse()
+                        .withTransformers("freemarker-transformer")
+                        .withHeader("Content-Type", "application/json")
+                        .withBody(if (success) customer else null)
+                        .withTransformerParameter("uid", uid)
+                        .withTransformerParameter("customerId", customerId)
+                )
+        )
+    }
+    
+    
+* Verify that previous Mock has been trigerred with specific headers, params, etc
+
+    fun verifyCustomerMockTriggering(uid: String, mockTriggerCount: Int) {
+        mock.verify(mockTriggerCount,
+            getRequestedFor(urlPathEqualTo("$CUSTOMER_URL_PATH/$uid"))
+                .withHeader("skey", equalTo("secretKey"))
+                .withHeader("Authorization", equalTo(AUTHORIZATION))
+        )
+    }
+    
+    
+        fun mockSmsActiveDomain(success: Boolean, body: String) {
+        mock.stubFor(
+            get(urlPathEqualTo(DOMAIN_SMS_URL_PATH))
+                .withQueryParam("skey", matching(".*"))
+                .willReturn(
+                    aResponse()
+                        .withBody(if (success)body else null)
+
+                )
+        )
+    }
+
+
+    fun verifyDomainEmailMockTriggering(mockTriggerCount: Int) {
+        mock.verify(mockTriggerCount,
+            getRequestedFor(urlPathEqualTo(DOMAIN_MAIL_URL_PATH))
+                .withQueryParam("skey", equalTo("secretKey"))
+                .withQueryParam("format", equalTo("plaintext"))
+                .withHeader("skey", equalTo("secretKey"))
+                .withHeader("Authorization", equalTo(AUTHORIZATION))
+        )
+    }
+    
+        
+*/
